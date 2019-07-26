@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  web:
+    ports:
+      - "8056:80"
+    build:
+      context: ./Dockerfiles/php-apache
+    volumes:
+      - ./app/:/var/www/html/
