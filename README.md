@@ -1,4 +1,5 @@
 # [ead-son-php-mvc](https://www.schoolofnet.com/curso/php/linguagem-php/php-com-mvc-rev2)
+É possível usar o docker para iniciar o servidor ou acessar `app` e usar o comando ``php -S localhost:8080 -t public``
 
 ## Comandos docker
 * Criar/Iniciar containers ``sudo docker-compose up ``

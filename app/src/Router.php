@@ -6,9 +6,30 @@ class Router implements \ArrayAccess
 {
   private $routes = [];
 
-  public function __construct(array $routes)
+  public function __construct(array $routes = [])
   {
     $this->routes = $routes;
+  }
+
+  public function handler()
+  {
+    $path = $_SERVER['PATH_INFO'] ?? '/';
+    if(strlen($path) > 1)
+    {
+      // remove ultimo "/"
+      $path = rtrim($path, '/');
+
+    }
+
+    // testa se a rota existe
+    if($this->offsetExists($path))
+    {
+      return $this->offsetGet($path);
+    }
+
+    http_response_code(404);
+    echo "Página inexistente";
+    exit;
   }
 
   /*
