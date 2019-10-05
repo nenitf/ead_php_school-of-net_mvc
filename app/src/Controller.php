@@ -4,10 +4,15 @@ namespace SON;
 
 class Controller
 {
-  public function handler()
-  {
-    // self: própria classe
-    // class: nome da classe
-    return self::class;
-  }
+    // renderiza html
+    public function render(array $data = [], string $view = null)
+    {
+        // Trnasforma arrays
+        // key => value
+        // em variaveis
+        // $key = value
+        extract($data);
+
+        require __DIR__ . '/templates/' . $view . '.tpl.php';
+    }
 }

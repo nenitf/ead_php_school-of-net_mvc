@@ -6,13 +6,13 @@ use SON\Controller;
 
 class UserController extends Controller
 {
-  public function index()
-  {
-    return "Página inicial de usuários";
-  }
+    public function index()
+    {
+        $this->render(["nome" => "Erik"], "users/index");
+    }
 
-  public function create()
-  {
-    return "Página de cadastro";
-  }
+    public function create()
+    {
+        return "Página de cadastro";
+    }
 }
