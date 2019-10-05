@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $this->render(["nome" => "Erik"], "users/index");
+        $this->render(["nome" => "Erik"]);
     }
 
     public function create()

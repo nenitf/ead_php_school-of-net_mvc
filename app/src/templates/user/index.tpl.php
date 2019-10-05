@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1>Olá <?=$data['nome']?></h1>
+<h1>Olá <?=$nome?></h1>
 
 </body>
 
