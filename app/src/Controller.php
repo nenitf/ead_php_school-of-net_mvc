@@ -4,12 +4,13 @@ namespace SON;
 
 class Controller
 {
+    protected $model;
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
     public function render(array $data = [], string $view = null)
     {
-        // Caso não seja passado qual view
-        // será escolhido o arquivo de mesmo nome da função que chamou render()
-        // do diretório da controller
-        // e.g. UserController->index() => app/src/templates/user/index.tpl.php
         if (!$view) {
             $view = $this->controllerName() . '/' . debug_backtrace()[1]['function'];
         }
@@ -19,10 +20,10 @@ class Controller
 
     private function controllerName()
     {
-        $class = get_class($this); // App\Controllers\UsersController
-        $class = explode('\\', $class); // [ "App", "Controllers", "UsersController" ]
-        $class = array_pop($class); // UsersController
-        $class = preg_replace('/Controller$/', '', $class); // Users
-        return strtolower($class); // users
+        $class = get_class($this);
+        $class = explode('\\', $class);
+        $class = array_pop($class);
+        $class = preg_replace('/Controller$/', '', $class);
+        return strtolower($class);
     }
 }
