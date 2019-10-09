@@ -26,4 +26,11 @@ class Controller
         $class = preg_replace('/Controller$/', '', $class);
         return strtolower($class);
     }
+
+    private function configModel()
+    {
+        if (!$this->model->getTableName()) {
+            $this->model->setTableName($this->controllerName());
+        }
+    }
 }

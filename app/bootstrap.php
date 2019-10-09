@@ -1,14 +1,10 @@
 <?php
-// php -S localhost:8080
-// localhost:8080/bootstrap.php
-// localhost:8080/bootstrap.php/registro
 
 require __DIR__ . '/vendor/autoload.php';
 $router = require __DIR__ . '/router.php';
+$resolver = require __DIR__ . '/resolver.php';
 
 $object = $router->handler();
 
-$controller = new $object['class'](new App\Models\User);
+$resolver->handler($object['class'], $object['action']);
 
-$action = $object['action'];
-echo $controller->$action();
